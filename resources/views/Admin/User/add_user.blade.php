@@ -18,7 +18,7 @@
             <div class="box box-primary">
 
                 <div class="box-header with-border">
-                    <h3>Add User</h3>php
+                    <h3>Add User</h3>
                 </div>
                 <form class="form" method="post" action="" role="form" >
                     <div class="box-body">

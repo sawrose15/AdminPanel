@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\model\Category;
+use App\model\products;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,7 +18,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('Admin/Products/add_product');
+        $data= Category::all();
+        return view('Admin/Products/add_product')->withData($data);
     }
 
     /**
@@ -26,7 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('Admin/Products/manage_product');
+        $data= products::all();
+        return view('Admin/Products/manage_product')->withData($data);
     }
 
     /**
@@ -37,7 +41,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        $this->validate($request, [
+//            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//        ]);
+
+        $data = new products();
+        $data->product_name = $request -> product_name ;
+        $data->category_name = $request -> category_name;
+        $data->product_code = $request -> product_code;
+        $data->product_description = $request -> product_description;
+        $data->product_price = $request -> product_price;
+
+        $imagename = time().'.'.$request-> image -> getClientOriginalExtension();
+        $destinationPath = public_path('/images');
+        $request->image->move($destinationPath, $imagename);
+        $data->product_image = $imagename;
+        $data->save();
+
+        return back();
+
     }
 
     /**
