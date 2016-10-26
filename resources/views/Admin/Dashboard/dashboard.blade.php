@@ -26,8 +26,13 @@
     {!! Html::style('plugins/datepicker/datepicker3.css') !!}
     <!-- Daterange picker -->
     {!! Html::style('plugins/daterangepicker/daterangepicker.css') !!}
+
     <!-- bootstrap wysihtml5 - text editor -->
     {!! Html::style('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') !!}
+
+
+
+    {!! Html::style('https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css') !!}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -75,6 +80,10 @@
 {!!Html::script('plugins/daterangepicker/daterangepicker.js') !!}
 <!-- datepicker -->
 {!!Html::script('plugins/datepicker/bootstrap-datepicker.js') !!}
+<!-- DataTables -->
+
+{!!Html::script('plugins/datatables/jquery.dataTables.min.js') !!}
+{!!Html::script('https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')!!}
 <!-- Bootstrap WYSIHTML5 -->
 {!!Html::script('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') !!}
 <!-- Slimscroll -->
