@@ -1,16 +1,12 @@
 <?php
 
-
 namespace App\Http\Controllers\admin;
 
-use App\model\Category;
+use App\model\Cases;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-
 use App\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+class CasesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cat= Category::all();
-        return view('Admin/category/index')->withcat($cat);
+//
+        return view('Admin/case/create');
+//        $case= Cases::all();
+//        return view('Admin/case/index');
+
     }
 
     /**
@@ -30,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -41,8 +40,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
-//        $this->validate($request, array(
+       // $this->validate($request, array(
 //
 //            'category_name' => 'required| max:50',
 //            'description' => 'required',
@@ -50,17 +48,21 @@ class CategoryController extends Controller
 //
 //        ));
 
-        $cat = new Category;
-        $cat->category_name = $request->category_name;
-        $cat->description = $request->description;
-        $cat->created_by='pass';
-        $cat->rank=$request->rank;
-         $cat->save();
+            $case = new Cases;
+        $case->subject = $request->subject;
+        $case->status = $request->status;
+        $case->priority = $request->priority;
+        $case->case_owner = $request->case_owner;
+        $case->case_reason = $request->case_reason;
+//        $case->created_by='pass';
+        $case->type=$request->type;
 
-        return back()->withcat($cat);
+        $case->save();
+        return view('Admin/case/create');
+
+
 
     }
-
     /**
      * Display the specified resource.
      *
