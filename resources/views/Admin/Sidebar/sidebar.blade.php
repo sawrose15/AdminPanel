@@ -40,10 +40,24 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ URL::to('user') }}"><i class="fa fa-circle-o"></i>Add User</a></li>
+                    <li><a href="{{ route('user.index') }}"><i class="fa fa-circle-o"></i>Add User</a></li>
                     <li><a href="{{ route('user.create') }}"><i class="fa fa-circle-o"></i>Manage User</a></li>
                 </ul>
             </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-cart-plus"></i>
+                    <span>Products</span>
+                    <span class="pull-right-container"/>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('products.index') }}"><i class="fa fa-circle-o"></i>Add Products</a></li>
+                    <li><a href="{{ route('products.create') }}"><i class="fa fa-circle-o"></i>Manage Products</a></li>
+                </ul>
+            </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>

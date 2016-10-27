@@ -12,10 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('Admin/Dashboard/dashboard');
+    return view('Admin/Dashboard/index');
 });
 
 Route::resource('dash','admin\DashboardController');
 Route::resource('login','login\LoginController');
 
 Route::resource('/user','admin\UserController');
+Route::resource('/products','admin\ProductController');
