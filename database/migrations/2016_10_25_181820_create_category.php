@@ -13,7 +13,15 @@ class CreateCategory extends Migration
      */
     public function up()
     {
-        //
+       Schema::create('categories', function (Blueprint $table) {
+
+            $table->increments('id');
+            $table->string('category_name')->unique();
+            $table->string('description');
+           $table->string('created_by');
+            $table->integer('rank');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class CreateCategory extends Migration
      */
     public function down()
     {
-        //
+       Schema::DropIfExists('categories') ;
     }
 }

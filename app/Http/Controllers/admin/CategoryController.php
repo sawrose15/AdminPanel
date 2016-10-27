@@ -3,9 +3,11 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
@@ -17,7 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('Admin/category/index');
+        $cat= Category::all();
+        return view('Admin/category/index')->withcat($cat);
     }
 
     /**
@@ -39,20 +42,22 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request, array(
+//        $this->validate($request, array(
+//
+//            'category_name' => 'required| max:50',
+//            'description' => 'required',
+//            'rank' => 'required|max:3'
+//
+//        ));
 
-            'name' => 'required| max:50',
-            'description' => 'required'
+        $cat = new Category;
+        $cat->category_name = $request->category_name;
+        $cat->description = $request->description;
+        $cat->created_by='pass';
+        $cat->rank=$request->rank;
+         $cat->save();
 
-        ));
-
-        $query = new Query;
-        $query->subject = $request->subject;
-        $query->description = $request->description;
-        $query->created_by=$request->created_by;
-        $query->save();
-
-        return redirect()->route('query.create',$query->id);
+        return back()->withcat($cat);
 
     }
 
