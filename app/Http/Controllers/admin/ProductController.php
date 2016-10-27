@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\model\userdetail;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-       return view('Admin/User/add_user');
+        return view('Admin/Products/add_product');
     }
 
     /**
@@ -27,8 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-       $data= userdetail::all();
-        return view('Admin/User/manage_user')->withData($data);
+        return view('Admin/Products/manage_product');
     }
 
     /**
@@ -39,18 +37,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data= new userdetail();
-        $data->name = $request -> fullname;
-        $data->username = $request ->username;
-        $data->password = $request ->password;
-        $data->department = $request ->department;
-        $data->reporting_to = $request ->report_to;
-        $data->email_address = $request ->email;
-        $data->phone_no = $request ->phone;
-        $data->usertype = $request ->usertype;
-
-        $data->save();
-        return back();
+        //
     }
 
     /**
