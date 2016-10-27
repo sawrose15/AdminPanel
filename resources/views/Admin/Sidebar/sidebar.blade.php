@@ -46,6 +46,13 @@
             </li>
 
             <li class="treeview">
+                <a href="{{ route('category.index') }}">
+                    <i class="fa fa-cart-plus"></i>
+                    <span>Category</span>
+                </a>
+            </li>
+
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-cart-plus"></i>
                     <span>Products</span>
