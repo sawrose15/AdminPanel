@@ -20,3 +20,4 @@ Route::resource('login','login\LoginController');
 Route::resource('/user','admin\UserController');
 Route::resource('/category','admin\CategoryController');
 Route::resource('/products','admin\ProductController');
+Route::resource('/case','admin\CasesController');
